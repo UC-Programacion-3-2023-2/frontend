@@ -1,4 +1,4 @@
-<nav class="navbar navbar-vertical navbar-expand-md navbar-light bg-white" id="sidenav-main">
+<nav  class="navbar navbar-vertical navbar-expand-md navbar-light bg-white" id="sidenav-main">
   <div class="container-fluid">
     <!-- Toggler -->
     <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
@@ -88,11 +88,11 @@
         </div>
       </form>
       <!-- Navigation -->
-      <ul class="navbar-nav">
+      <ul class="navbar-nav" >
           <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-              <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
+              <a *ngIf="menuItem.type==1 || (menuItem.type==(securityService.sessionExists()?2:3))" routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
                   <i class="ni {{menuItem.icon}}"></i>
-                  {{menuItem.title}}
+                  {{menuItem.title }}
               </a>
           </li>
       </ul>
